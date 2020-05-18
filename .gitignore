@@ -1,0 +1,7 @@
+/packages
+/NvidiaFpsLimitHelper/bin
+/NvidiaFpsLimitHelper/obj
+*.user
+*.aps
+*.pfx
+*.vs

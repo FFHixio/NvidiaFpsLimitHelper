@@ -1,0 +1,24 @@
+﻿<Window x:Class="NvidiaFpsLimitHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NvidiaFpsLimitHelper"
+        mc:Ignorable="d"
+        Title="Nvidia Fps Limit Helper" 
+        Background="#F1F1F1"
+        ResizeMode="NoResize"
+        Height="185"
+        Width="460">
+
+    <StackPanel Margin="5">
+        <TextBlock Name="textblock_SettingsDisplayMonitor" Text="Target display monitor" Tag="Target display monitor: "/>
+        <Slider Name="slider_SettingsDisplayMonitor" Minimum="1" Maximum="10"/>
+
+        <TextBlock Margin="0,10,0,0" Name="textblock_SettingsMaxFpsOffset" Text="Maximum fps offset" Tag="Maximum fps offset: "/>
+        <Slider Name="slider_SettingsMaxFpsOffset" Minimum="-10" Maximum="10" IsSnapToTickEnabled="True"/>
+
+        <TextBlock Margin="0,10,0,0" Name="textblock_ApplicationStatus" Text="Status: checking the refresh rate from monitor" TextWrapping="Wrap"/>
+        <TextBlock Margin="0,10,0,0" Text="* You may have to restart running applications to apply the new frame rate limit." TextWrapping="Wrap"/>
+    </StackPanel>
+</Window>
