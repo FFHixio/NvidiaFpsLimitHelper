@@ -89,6 +89,7 @@
     <Compile Include="AppEvents.cs" />
     <Compile Include="AppTray.cs" />
     <Compile Include="Settings\AppSettingsSave.cs" />
+    <Compile Include="Settings\SettingsStartup.cs" />
     <Compile Include="Settings\SettingsSave.cs" />
     <Compile Include="Settings\SettingsLoad.cs" />
     <Compile Include="Settings\AppSettingsCheck.cs" />
@@ -131,6 +132,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NvApiDriverSettings.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

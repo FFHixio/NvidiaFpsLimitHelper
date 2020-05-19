@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace NvidiaFpsLimitHelper
@@ -23,6 +25,14 @@ namespace NvidiaFpsLimitHelper
                 int maxFpsOffset = Convert.ToInt32(ConfigurationManager.AppSettings["MaxFpsOffset"]);
                 textblock_SettingsMaxFpsOffset.Text = textblock_SettingsMaxFpsOffset.Tag.ToString() + maxFpsOffset;
                 slider_SettingsMaxFpsOffset.Value = maxFpsOffset;
+
+                //Check if application is set to launch on Windows startup
+                string targetAssemblyName = Assembly.GetEntryAssembly().GetName().Name;
+                string targetFileShortcut = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup), targetAssemblyName + ".url");
+                if (File.Exists(targetFileShortcut))
+                {
+                    checkbox_SettingsWindowsStartup.IsChecked = true;
+                }
 
                 return true;
             }

@@ -8,7 +8,7 @@
         Title="Nvidia Fps Limit Helper" 
         Background="#F1F1F1"
         ResizeMode="NoResize"
-        Height="210"
+        Height="230"
         Width="460">
 
     <StackPanel Margin="5">
@@ -18,6 +18,7 @@
         <TextBlock Margin="0,10,0,0" Name="textblock_SettingsMaxFpsOffset" Text="Maximum frame rate offset" Tag="Maximum frame rate offset: "/>
         <Slider Name="slider_SettingsMaxFpsOffset" Minimum="-10" Maximum="10" IsSnapToTickEnabled="True"/>
 
+        <CheckBox Margin="0,10,0,0" Name="checkbox_SettingsWindowsStartup" Content="Launch application on Windows startup"/>
         <TextBlock Margin="0,10,0,0" Name="textblock_ApplicationStatus" Text="Status: checking the refresh rate from monitor" TextWrapping="Wrap"/>
         <TextBlock Margin="0,10,0,0" Text="* You may have to restart running applications to apply the new frame rate limit." TextWrapping="Wrap"/>
         <TextBlock Margin="0,10,0,0" Name="textblock_ApplicationVersion" Text="Version information" TextWrapping="Wrap"/>

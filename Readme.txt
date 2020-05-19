@@ -6,6 +6,7 @@ Nvidia Fps Limit Helper will automatically change the Max Frame Rate setting to 
 3) Launch NvidiaFpsLimitHelper.exe and select your target monitor.
 
 | Tips and tricks
+- Let the application automatically launch on Windows startup for easier usage.
 - Some users might need to run the application as administrator to work properly.*
 * You can run it as administrator by right mouse clicking on NvidiaFpsLimitHelper.exe
 

@@ -27,6 +27,8 @@ namespace NvidiaFpsLimitHelper
                     Setting_Save("MaxFpsOffset", maxFpsOffset.ToString());
                     UpdateMaxFrameRateSetting();
                 };
+
+                checkbox_SettingsWindowsStartup.Click += delegate { ManageShortcutStartup(); };
             }
             catch (Exception ex)
             {
