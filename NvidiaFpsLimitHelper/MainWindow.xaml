@@ -8,17 +8,18 @@
         Title="Nvidia Fps Limit Helper" 
         Background="#F1F1F1"
         ResizeMode="NoResize"
-        Height="185"
+        Height="210"
         Width="460">
 
     <StackPanel Margin="5">
         <TextBlock Name="textblock_SettingsDisplayMonitor" Text="Target display monitor" Tag="Target display monitor: "/>
         <Slider Name="slider_SettingsDisplayMonitor" Minimum="1" Maximum="10"/>
 
-        <TextBlock Margin="0,10,0,0" Name="textblock_SettingsMaxFpsOffset" Text="Maximum fps offset" Tag="Maximum fps offset: "/>
+        <TextBlock Margin="0,10,0,0" Name="textblock_SettingsMaxFpsOffset" Text="Maximum frame rate offset" Tag="Maximum frame rate offset: "/>
         <Slider Name="slider_SettingsMaxFpsOffset" Minimum="-10" Maximum="10" IsSnapToTickEnabled="True"/>
 
         <TextBlock Margin="0,10,0,0" Name="textblock_ApplicationStatus" Text="Status: checking the refresh rate from monitor" TextWrapping="Wrap"/>
         <TextBlock Margin="0,10,0,0" Text="* You may have to restart running applications to apply the new frame rate limit." TextWrapping="Wrap"/>
+        <TextBlock Margin="0,10,0,0" Name="textblock_ApplicationVersion" Text="Version information" TextWrapping="Wrap"/>
     </StackPanel>
 </Window>

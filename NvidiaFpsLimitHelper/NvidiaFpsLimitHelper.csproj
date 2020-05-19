@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,9 +84,16 @@
     <Compile Include="..\..\ArnoldVinkCode\Desktop\Functions\AVDisplayMonitor\Interop\InteropSwitch.cs">
       <Link>Resources\ArnoldVinkCode\AVDisplayMonitor\Interop\InteropSwitch.cs</Link>
     </Compile>
+    <Compile Include="AppCheck.cs" />
+    <Compile Include="AppStartup.cs" />
+    <Compile Include="AppEvents.cs" />
+    <Compile Include="AppTray.cs" />
+    <Compile Include="Settings\AppSettingsSave.cs" />
     <Compile Include="Settings\SettingsSave.cs" />
     <Compile Include="Settings\SettingsLoad.cs" />
-    <Compile Include="Settings\SettingsCheck.cs" />
+    <Compile Include="Settings\AppSettingsCheck.cs" />
+    <Compile Include="UpdateDisplayMonitors.cs" />
+    <Compile Include="UpdateMaxFrameRate.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,7 +125,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\AppIcon.ico" />
+    <EmbeddedResource Include="Assets\AppIcon.ico" />
     <Content Include="Resources\NvApi\NvApiDriverSettings.h" />
     <Content Include="Resources\NvApi\NvApiDriverSettings.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -9,10 +9,10 @@ namespace NvApi
     public partial class NvApiWrapper
     {
         [DllImport("nvapi64.dll", EntryPoint = "nvapi_QueryInterface", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr NvApiQueryInterface64(uint id);
+        private static extern IntPtr NvApiQueryInterface64(NVAPI_Id apiId);
 
         [DllImport("nvapi.dll", EntryPoint = "nvapi_QueryInterface", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr NvApiQueryInterface32(uint id);
+        private static extern IntPtr NvApiQueryInterface32(NVAPI_Id apiId);
 
         //Get delegate that belongs to the api id
         private static T GetApiIdDelegate<T>(NVAPI_Id apiId) where T : class
@@ -22,11 +22,11 @@ namespace NvApi
                 IntPtr intPtrApiQuery = IntPtr.Zero;
                 if (IntPtr.Size > 4)
                 {
-                    intPtrApiQuery = NvApiQueryInterface64((uint)apiId);
+                    intPtrApiQuery = NvApiQueryInterface64(apiId);
                 }
                 else
                 {
-                    intPtrApiQuery = NvApiQueryInterface32((uint)apiId);
+                    intPtrApiQuery = NvApiQueryInterface32(apiId);
                 }
 
                 if (intPtrApiQuery != IntPtr.Zero)
@@ -80,11 +80,13 @@ namespace NvApi
                 }
 
                 //Create new setting
-                NVDRS_SETTING_V1 drsSetting = new NVDRS_SETTING_V1();
-                drsSetting.version = MAKE_NVAPI_VERSION<NVDRS_SETTING_V1>(1);
-                drsSetting.settingId = (uint)ESetting.MAXFRAMERATE;
-                drsSetting.settingType = NVDRS_SETTING_TYPE.NVDRS_DWORD_TYPE;
-                drsSetting.settingLocation = NVDRS_SETTING_LOCATION.NVDRS_GLOBAL_PROFILE_LOCATION;
+                NVDRS_SETTING_V1 drsSetting = new NVDRS_SETTING_V1
+                {
+                    version = MAKE_NVAPI_VERSION<NVDRS_SETTING_V1>(1),
+                    settingId = (uint)ESetting.MAXFRAMERATE,
+                    settingType = NVDRS_SETTING_TYPE.NVDRS_DWORD_TYPE,
+                    settingLocation = NVDRS_SETTING_LOCATION.NVDRS_GLOBAL_PROFILE_LOCATION
+                };
 
                 uint uintHexValue = uint.Parse(maxFrameRate.ToString("X"), NumberStyles.HexNumber);
                 NVDRS_SETTING_UNION currentValue = new NVDRS_SETTING_UNION
@@ -117,7 +119,7 @@ namespace NvApi
                     return false;
                 }
 
-                Debug.WriteLine("Adjusted the maximum frame rate to: " + maxFrameRate + "fps");
+                Debug.WriteLine("Adjusted the maximum frame rate to " + maxFrameRate + "fps");
                 return true;
             }
             catch (Exception ex)

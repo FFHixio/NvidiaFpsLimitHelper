@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Configuration;
 using System.Diagnostics;
+using static NvidiaFpsLimitHelper.AppSettings;
+using static NvidiaFpsLimitHelper.UpdateMaxFrameRate;
 
 namespace NvidiaFpsLimitHelper
 {
@@ -15,7 +16,7 @@ namespace NvidiaFpsLimitHelper
                 {
                     int monitorNumber = Convert.ToInt32(slider_SettingsDisplayMonitor.Value);
                     textblock_SettingsDisplayMonitor.Text = textblock_SettingsDisplayMonitor.Tag.ToString() + monitorNumber;
-                    SettingSave("DisplayMonitor", monitorNumber.ToString());
+                    Setting_Save("DisplayMonitor", monitorNumber.ToString());
                     UpdateMaxFrameRateSetting();
                 };
 
@@ -23,7 +24,7 @@ namespace NvidiaFpsLimitHelper
                 {
                     int maxFpsOffset = Convert.ToInt32(slider_SettingsMaxFpsOffset.Value);
                     textblock_SettingsMaxFpsOffset.Text = textblock_SettingsMaxFpsOffset.Tag.ToString() + maxFpsOffset;
-                    SettingSave("MaxFpsOffset", maxFpsOffset.ToString());
+                    Setting_Save("MaxFpsOffset", maxFpsOffset.ToString());
                     UpdateMaxFrameRateSetting();
                 };
             }
@@ -31,20 +32,6 @@ namespace NvidiaFpsLimitHelper
             {
                 Debug.WriteLine("Failed to save the application settings: " + ex.Message);
             }
-        }
-
-        //Save - Application Setting
-        void SettingSave(string name, string value)
-        {
-            try
-            {
-                Configuration configurationApplication = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                configurationApplication.AppSettings.Settings.Remove(name);
-                configurationApplication.AppSettings.Settings.Add(name, value);
-                configurationApplication.Save();
-                ConfigurationManager.RefreshSection("appSettings");
-            }
-            catch { }
         }
     }
 }

@@ -23,5 +23,5 @@ When you are walking into any problems or a bug you can go to my help page at ht
 If you appreciate my project and want to support me with my projects you can make a donation through https://donation.arnoldvink.com
 
 | Changelog
-v1.0.0.0 (?-May-2020)
+v1.0.0.0 (19-May-2020)
 - First public test release.
