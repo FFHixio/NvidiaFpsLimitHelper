@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 
 namespace NvidiaFpsLimitHelper
@@ -21,6 +22,9 @@ namespace NvidiaFpsLimitHelper
                     Environment.Exit(0);
                     return;
                 }
+
+                //Set the working directory to executable directory
+                Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
 
                 //Check for missing application files
                 string[] applicationFiles = { "NvidiaFpsLimitHelper.exe.Config" };
