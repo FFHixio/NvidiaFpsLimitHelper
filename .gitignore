@@ -1,6 +1,7 @@
 /packages
 /NvidiaFpsLimitHelper/bin
 /NvidiaFpsLimitHelper/obj
+NvApiDriverSettings.cs
 *.user
 *.aps
 *.pfx

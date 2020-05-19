@@ -111,7 +111,7 @@ namespace NvApi
                     return false;
                 }
 
-                //Save new setting
+                //Destroy session
                 NVAPI_Status nvAPI_DRS_DestroySessionDelegate = GetApiIdDelegate<NvAPI_DRS_DestroySessionDelegate>(NVAPI_Id.NvAPI_DRS_DestroySession)(hSession);
                 if (nvAPI_DRS_DestroySessionDelegate != NVAPI_Status.NVAPI_OK)
                 {

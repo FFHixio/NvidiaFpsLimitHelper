@@ -139,4 +139,7 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(DevEnvDir)TextTransform.exe" -out "$(ProjectDir)\Resources\NvApi\NvApiDriverSettings.cs" "$(ProjectDir)\Resources\NvApi\NvApiDriverSettings.tt"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
